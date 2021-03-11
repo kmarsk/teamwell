@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  ROLE = ["Employer", "Employee", "Trainer"]
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   belongs_to :company, optional: true
