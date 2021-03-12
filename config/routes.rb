@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   end
 
   namespace :trainers do
-    resources :activities, only: [:new, :create, :destroy]
+    resources :activities, only: [:show, :new, :create, :destroy]
   end
 end
