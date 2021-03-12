@@ -1,5 +1,5 @@
 class Employees::DashboardsController < ApplicationController
-    def show
-        @employee = User.find(params[:id])
-    end    
+    def index
+      @employee = current_user
+    end
 end

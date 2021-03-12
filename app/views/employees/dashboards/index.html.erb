@@ -1,0 +1,11 @@
+<h1>Discuss what goes in Dashboard!</h1>
+<h2>We will need to expand show action...</h2>
+
+<%= form_tag employees_activities_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a class"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
