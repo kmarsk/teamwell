@@ -1,28 +1,26 @@
-<!--<div class="cards">
-   <% @activities.each do |activity| %>
-      
-      <%= link_to  trainers_activities_path(activity.id) do %>
-         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path bicycle.photo.key, height: 300, crop: :fill %>')">
-         </div> -->
-         <!-- HERE we can add the card info. I copied the example from our Cyclopedia app.-->
-          <!--<strong class="card-text"><%= "#{bicycle.brand} #{bicycle.model}-#{bicycle.activity}  $#{bicycle.price}/day"%></strong>
-         <p class="card-text"><%= "#{bicycle.gender} #{bicycle.size}" %></p> -->
-      <!--<% end %>
-      
-   <% end %>
-</div>-->
+
+
+<%= form_tag employees_activities_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a class"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 
 <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2017/08/05/13/10/people-2583466_1280.jpg)">
-    Boxing
-  </div>
+   <% @activities.each do |activity| %>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2019/04/14/17/54/sport-4127336_1280.jpg)">
-    Yoga
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/11/17/13/17/crossfit-534615_1280.jpg)">
-    Weight Lifting
-  </div>
+      <%= link_to  employees_activity_path(activity.id) do %>
+         <div class="card-product" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
+         </div>
+          <strong class="card-text"><%= "#{activity.category} #{activity.time}-#{activity.date}  #{activity.frequency}"%></strong>
+      <% end %>
+   <% end %>
 </div>
+
+
+
 
