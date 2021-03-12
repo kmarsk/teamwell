@@ -1,10 +1,7 @@
 
 
-
-
 <div class="cards">
    <% @activities.each do |activity| %>
-
       <%= link_to  employees_activity_path(activity.id) do %>
          <div class="card-product" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
          </div>
@@ -12,7 +9,3 @@
       <% end %>
    <% end %>
 </div>
-
-
-
-
