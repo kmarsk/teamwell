@@ -1,6 +1,14 @@
+<%= form_tag employees_activities_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a class"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="cards">
    <% @activities.each do |activity| %>
-      
       <%= link_to  employees_activity_path(activity.id) do %>
          <div class="card-product" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
          </div>
