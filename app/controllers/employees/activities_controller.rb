@@ -2,7 +2,7 @@ class Employees::ActivitiesController < ApplicationController
 
     def index
       if params[:query].present?
-        @activities = Activity.where(category: params[:query])
+        @activities = Activity.where("category ILIKE ?", "%#{params[:query]}%")
       else
         @activities = Activity.all
       end
