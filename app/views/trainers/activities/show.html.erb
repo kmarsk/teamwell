@@ -1,3 +1,4 @@
+<div>
 <p>
   <strong>Type:</strong>
   <%= @activity.category %>
@@ -12,3 +13,11 @@
   <strong>Length:</strong>
   <%= @activity.duration%>
 </p>
+
+<%= link_to 'Destroy', trainers_activity_path(@activity), method: :delete %>
+
+
+</div>
+
+
+

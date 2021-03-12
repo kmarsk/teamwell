@@ -22,12 +22,17 @@ class Trainers::ActivitiesController < ApplicationController
     end
   end
 
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect_to root_path, notice: 'Class has been successfully deleted.'
+  end
+
   private
+
   def activity_params
     params.require(:activity).permit(:category, :time, :date, :frequency, :equipment, :duration, :description)
   end
-
 end
-
 
 
