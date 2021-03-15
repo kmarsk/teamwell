@@ -5,16 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+# User.destroy_all
 Booking.destroy_all
-Company.destroy_all
+# Company.destroy_all
 Activity.destroy_all
-User.destroy_all
 
-trainer_user = User.create!(role: 'trainer', email: 'bea@gmail.com', first_name: 'Beatrice', last_name: 'Rogers', password: 'Beatrice123', bio: 'ex-dancer and nutrition expert with passion for movement and making each workout fun')
-employee_user = User.create!(role: 'employee', email: 'amanda@gmail.com', first_name: 'Amanda', last_name: 'Tex', password: 'Amanda123', bio: 'passionate coder who loves to run and to develop her yoga practice')
-company_user = User.create!(role: 'employer', email: 'boss@gmail.com', first_name: 'Teresa', last_name: 'Morales', password: 'Teresa123', bio: 'HR manager excited to enhance the wellbeing of my team' )
-user = User.create!(role: 'employee', email: 'marta@gmail.com', first_name: 'Marta', last_name: 'Kas', password: 'Marta123', bio: 'enjoyes team sports and hiking')
+
+trainer_user = User.create!(role: 'trainer', email: 'beax@gmail.com', first_name: 'Beatrice', last_name: 'Rogers', password: 'Beatrice123', bio: 'ex-dancer and nutrition expert with passion for movement and making each workout fun')
+employee_user = User.create!(role: 'employee', email: 'amandat@gmail.com', first_name: 'Amanda', last_name: 'Tex', password: 'Amanda123', bio: 'passionate coder who loves to run and to develop her yoga practice')
+company_user = User.create!(role: 'employer', email: 'bossl@gmail.com', first_name: 'Teresa', last_name: 'Morales', password: 'Teresa123', bio: 'HR manager excited to enhance the wellbeing of my team' )
+user = User.create!(role: 'employee', email: 'martak@gmail.com', first_name: 'Marta', last_name: 'Kas', password: 'Marta123', bio: 'enjoyes team sports and hiking')
 
 4.times do
   activity = Activity.create!(
