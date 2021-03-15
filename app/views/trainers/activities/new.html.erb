@@ -1,5 +1,1 @@
-<%= simple_form_for [:trainers, @activity] do |f| %>
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.submit 'Create class', class: "btn btn-info"  %>
-<% end %>
+<%= render 'form', activity: @activity %>

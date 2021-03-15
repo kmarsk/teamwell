@@ -1,5 +1,6 @@
 class Trainers::DashboardsController < ApplicationController
-    def show
-        @trainer = User.find(params[:id])
-    end    
+    def index
+        @trainer = current_user
+        @activities = Activity.all
+    end
 end

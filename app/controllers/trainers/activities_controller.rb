@@ -17,11 +17,11 @@ class Trainers::ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @activity.user = current_user
     if @activity.save
-      redirect to trainers_activity_path(@activity), notice: "Class was successfully created"
+      redirect_to trainers_activity_path(@activity), notice: "Class was successfully created"
     else
       render 'new'
     end
-  end
+  end 
 
   def destroy
     @activity = Activity.find(params[:id])

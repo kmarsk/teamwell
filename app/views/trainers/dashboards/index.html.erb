@@ -1,0 +1,16 @@
+<h1>DASHBOARD!</h1>
+
+<%= link_to "Click to Create new Class", new_trainers_activity_path %>
+
+<div class="cards">
+   <% @activities.each do |activity| %>
+        <% if activity.user_id == current_user.id%>
+            <%= link_to  employees_activity_path(activity.id) do %>
+                <div class="card-product" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
+                </div>
+                <strong class="card-text"><%= "#{activity.category} #{activity.time}-#{activity.date}  #{activity.frequency} #{activity.user_id}"%></strong>
+            <% end %>
+        <% end %>
+    <%end%>
+
+</div>
