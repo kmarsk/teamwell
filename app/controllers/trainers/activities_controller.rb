@@ -2,6 +2,7 @@ class Trainers::ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
+    @bookings = @activity.bookings
   end
 
   # def dashboard

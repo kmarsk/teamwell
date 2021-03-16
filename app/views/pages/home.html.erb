@@ -1,2 +1,29 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="<%= video_path 'video.mp4'%>" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h3 class="display-4">Start your wellbeing journey </h3>
+        <p> <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-light"%> - <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-light"%>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <p></p>
+
+      </div>
+    </div>
+  </div>
+</section>
