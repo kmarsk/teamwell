@@ -3,8 +3,8 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6DG8e2GECF00p_-Mu4hrz1rFjUngWKIvbg&usqp=CAU">
     <div class="card-product-infos">
       <h2>Yoga</h2>
-      <p><strong>Wonderful! Your class is scheduled for the day:<%= @booking.date %></strong></p>
-      <p><strong>See you at:<%= @booking.time %></strong></p>
+      <p>Wonderful! Your class is scheduled for the day <strong> <%= "#{@booking.date.day}/#{@booking.date.month}/#{@booking.date.year}" %></strong></p>
+      <p>See you at <strong> <%= "#{@booking.time.hour}:#{@booking.time.min}" %></strong></p>
     </div>
   </div>
 
