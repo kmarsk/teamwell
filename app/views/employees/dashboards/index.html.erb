@@ -1,6 +1,4 @@
-<h1>Discuss what goes in Dashboard!</h1>
-<h2>We will need to expand show action...</h2>
-
+<h1>Welcome <%= @employee.first_name%></h1>
 <%= form_tag employees_activities_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
@@ -8,7 +6,21 @@
     placeholder: "Find a class"
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
+
+  <div class="cards">
+   <% @bookings.each do |booking| %>
+        <% if booking.user_id == current_user.id%>
+            <%= link_to  employees_activity_booking_path(booking.activity_id, booking.id) do %>
+                <div id ="user-bookings" class="card-product", text-align="center", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url('https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/18/2019/09/Aulas-de-Yoga.jpg')">
+                </div>
+                <strong class="card-text"><%= "#{booking.activity.category}"%></strong>
+                <p> <%= "#{booking.date.day}/#{booking.date.month}/#{booking.date.year} - #{booking.time.hour}: #{booking.time.min} "  %> </p>
+            <% end %>
+        <% end %>
+    <%end%>
+
+</div>
 <% end %>
 
-<%= @employee.email %>
+
 
