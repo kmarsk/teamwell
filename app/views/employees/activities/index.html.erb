@@ -7,19 +7,24 @@
   </div>
 </form>
 
-
- <div class="cards">
-   <% @activities.each do |activity| %>
+<div class="container">
+<div class="cards">
+ <% @activities.each do |activity| %>
       <%= link_to  employees_activity_path(activity.id) do %>
          <div class="card-product" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
          </div>
           <strong class="card-text"><%= "#{activity.category} #{activity.time}-#{activity.date}  #{activity.frequency}"%></strong>
       <% end %>
    <% end %>
-   
-  </div>
     <%= link_to "Back", employees_dashboards_path %>
+    </div>
+  </div>
+</div>
+   
 
- </div>
+ 
+ 
+
+ 
  
 
