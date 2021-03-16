@@ -77,6 +77,11 @@
   }
 
 
+  #user-bookings{
+    background-size: cover;
+    background-position: center;
+
+
   .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -173,4 +178,5 @@
     .main-card {
       grid-template-columns: 1fr 1fr 1fr;
     }
+
   }
