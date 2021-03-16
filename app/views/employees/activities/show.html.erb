@@ -1,19 +1,23 @@
 <div class="card-product">
   <img src="https://d357mttm70bw7x.cloudfront.net/normal_4015c1e1-a3bb-450a-9278-e361cfd4b22c.jpg" />
     <div class="card-product-infos">
-    <div><h2>FIND A PROGRAM TO ACHIEVE YOUR <strong> MIND<strong> AND <strong>BODY.</strong></h2></div>
-    
+    <div><h2>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong> THROUGH MOVEMENT</h2></div>
+    <br>
+    <br>
+
+
+
     <div class><strong><h2><%= @activity.category %></strong></h2>
-      
-    <p>Activity:  <%= @activity.description %></p>
-    <p>Trainer :  <strong><%= @activity.user.bio %></p>
-    <p>Equipment: <%= @activity.equipment %></strong></p>
+
+    <p>Description:  <%= @activity.description%></p>
+    <p>Trainer : <%= @activity.user.first_name %></p>
+    <p>Equipment: <%= @activity.equipment %></p>
     <p>Duration : <%= @activity.duration %> minutes</p>
     <p>Frequency : <%= @activity.frequency %></p>
       </div>
      </div>
-  
-   
+
+
   <div>
   <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
   <%= f.input :date, as: :date, html5: true %>
@@ -24,22 +28,11 @@
   <%= f.submit "Book class", class: "btn btn-primary" %>
   </div>
 
-  
-  <p>Don't forget to <strong>breathe deeply and drink water.</strong></p>
+
+
   <% end %>
 </div>
 
-<div class="card-product">
-  <img src="https://d357mttm70bw7x.cloudfront.net/normal_4015c1e1-a3bb-450a-9278-e361cfd4b22c.jpg" />
-<h1>testando---</h1>
-  <p>Activity:  <%= @activity.description %></p>
-    <p>Trainer :  <strong><%= @activity.user.bio %></p>
-    <p>Equipment: <%= @activity.equipment %></strong></p>
-    <p>Duration : <%= @activity.duration %> minutes</p>
-    <p>Frequency : <%= @activity.frequency %></p>
-      </div>
-     </div>
-  </div> 
 
 
 
