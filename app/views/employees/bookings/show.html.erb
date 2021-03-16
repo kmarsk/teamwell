@@ -1,12 +1,14 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> TESTE</title>
- </head>
- <body>
+
+ <div class="d-flex flex-row">
+   <div class="card-product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6DG8e2GECF00p_-Mu4hrz1rFjUngWKIvbg&usqp=CAU">
+    <div class="card-product-infos">
+      <h2>Yoga</h2>
+      <p>Wonderful! Your class is scheduled for the day <strong> <%= "#{@booking.date.day}/#{@booking.date.month}/#{@booking.date.year}" %></strong></p>
+      <p>See you at <strong> <%= "#{@booking.time.hour}:#{@booking.time.min}" %></strong></p>
+    </div>
+  </div>
+
 
    <div class="main-container">
      
@@ -20,9 +22,9 @@
        <p>Activity:  <%= @booking.activity.description %></p>
      </div>
    </div>
-  </body>
- </html>
+
   
+
 
 
 
