@@ -1,16 +1,15 @@
-   <div class="main-container">
-    <h1>testando</h1>  
-    <div class="card-product">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6DG8e2GECF00p_-Mu4hrz1rFjUngWKIvbg&usqp=CAU">
-     <div class="card-product-infos">
-      <h2><strong>Wonderful! Your class is scheduled:</strong></h2>
-       <p><strong> <%= @booking.activity.category %></p></h2>
-       <p>Date: <%= @booking.date %></p>
-       <p>See you at:<%= @booking.time %></p>
-       <p>Activity:  <%= @booking.activity.description %></p>
-     </div>
-   </div>
- 
+ <div class="d-flex flex-row">
+   <div class="card-product">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6DG8e2GECF00p_-Mu4hrz1rFjUngWKIvbg&usqp=CAU">
+    <div class="card-product-infos">
+      <h2>Yoga</h2>
+      <p>Wonderful! Your class is scheduled for the day: <strong> <%= "#{@booking.date.day}/#{@booking.date.month}/#{@booking.date.year}" %></strong></p>
+      <p>See you at: <strong> <%= "#{@booking.time.hour}:#{@booking.time.min}" %></strong></p>
+      <p>Activity:  <%= @booking.activity.description %></p>
+    </div>
+  </div>
+  
+
 
 
 

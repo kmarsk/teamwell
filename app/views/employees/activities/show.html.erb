@@ -18,8 +18,12 @@
   <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
   <%= f.input :date, as: :date, html5: true %>
   <%= f.input :time, as: :time,  html5: true %>
+
+  #WE NEED TO FIX THE DATE BEING STORED IN TIME. DO AFTER DEMO
+
   <%= f.submit "Book class", class: "btn btn-primary" %>
   </div>
+
   
   <p>Don't forget to <strong>breathe deeply and drink water.</strong></p>
   <% end %>
