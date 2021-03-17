@@ -16,6 +16,6 @@ class Employees::ActivitiesController < ApplicationController
  
     private
     def article_params
-        params.require(:article).permit(:title, :body, :photo)
+        params.require(:ctivity).permit(:title, :body, :photo)
     end
 end
