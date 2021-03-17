@@ -2,11 +2,11 @@
    <div class="card-product">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6DG8e2GECF00p_-Mu4hrz1rFjUngWKIvbg&usqp=CAU">
     <div class="card-product-infos">
-      <h2>Wonderful - you are booked for <strong> <%= @booking.activity.category %></strong>!</h2>
+      <h2>Wonderful - you are booked for <strong> <%= @booking.schedule.activity.category %></strong>!</h2>
       <br>
-      <p>Date: <strong> <%= "#{@booking.date.day}/#{@booking.date.month}/#{@booking.date.year}" %></strong></p>
-      <p>Time: <strong> <%= "#{@booking.time.hour}:#{@booking.time.min}" %></strong></p>
-      <p>Trainer:  <%= @booking.activity.user.first_name%></p>
+      <p>Date: <strong> <%= "#{@booking.schedule.date.day}/#{@booking.schedule.date.month}/#{@booking.schedule.date.year}" %></strong></p>
+      <p>Time: <strong> <%= "#{@booking.schedule.time.hour}:#{@booking.schedule.time.min}" %></strong></p>
+      <p>Trainer:  <%= @booking.schedule.activity.user.first_name%></p>
       <br>
       <p><%= link_to 'Back', employees_dashboards_path, class: "btn btn-primary"%></p>
     </div>

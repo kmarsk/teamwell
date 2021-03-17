@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   end
 
   namespace :trainers do
-    resources :activities, only: [:show, :new, :create, :destroy]
+    resources :activities, only: [:show, :new, :create, :destroy] do
+      resources :schedules, only: [:create]
+    end
     resources :dashboards, only: [:index]
+
   end
 end

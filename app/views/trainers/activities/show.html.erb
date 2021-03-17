@@ -19,12 +19,45 @@
 </div>
 
  <div id="bookings">
-  <% @bookings.each do |booking| %>
+  <% @bookings.each do || %>
         <p id="booking-<%= booking.id %>"> <%= booking.date %> <%= booking.user.email %></p>
-        
+
       <% end %>
 
- <%= link_to "Back", employees_activities_path %>      
+ <%= link_to "Back", employees_activities_path %>
+
+
+<p>
+  <strong>Times of class:</strong>
+</p>
+  <div id="schedules">
+  <% @schedules.each do |schedule| %>
+        <p> <%= schedule.date %> <%= schedule.time %></p>
+      <% end %>
+
+<br>
+<br>
+<br>
+
+
+
+<p>
+  <strong>Add more times of class:</strong>
+</p>
+
+
+ <%= simple_form_for [:trainers, @activity, @schedule] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs">
+   <%= f.input :date, as: :date, html5: true%>
+   <%= f.input :time, as: :time, html5: true%>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
 
 
 

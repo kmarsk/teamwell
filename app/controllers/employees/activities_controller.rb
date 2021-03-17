@@ -11,9 +11,10 @@ class Employees::ActivitiesController < ApplicationController
     def show
         @activity= Activity.find(params[:id])
         @booking = Booking.new
-    end    
+        @schedules = @activity.schedules.where("date >= ?", Date.today)
+    end
 
- 
+
     private
     def article_params
         params.require(:article).permit(:title, :body, :photo)

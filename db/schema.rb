@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_12_150319) do
+ActiveRecord::Schema.define(version: 2021_03_17_174820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,9 +38,6 @@ ActiveRecord::Schema.define(version: 2021_03_12_150319) do
 
   create_table "activities", force: :cascade do |t|
     t.string "category"
-    t.time "time"
-    t.date "date"
-    t.string "frequency"
     t.text "equipment"
     t.text "description"
     t.integer "duration"
@@ -51,13 +48,11 @@ ActiveRecord::Schema.define(version: 2021_03_12_150319) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
     t.bigint "user_id", null: false
-    t.bigint "activity_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["activity_id"], name: "index_bookings_on_activity_id"
+    t.bigint "schedule_id"
+    t.index ["schedule_id"], name: "index_bookings_on_schedule_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -76,6 +71,15 @@ ActiveRecord::Schema.define(version: 2021_03_12_150319) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["booking_id"], name: "index_feedbacks_on_booking_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.date "date"
+    t.time "time"
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_schedules_on_activity_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,9 +102,10 @@ ActiveRecord::Schema.define(version: 2021_03_12_150319) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "activities", "users"
-  add_foreign_key "bookings", "activities"
+  add_foreign_key "bookings", "schedules"
   add_foreign_key "bookings", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "feedbacks", "bookings"
+  add_foreign_key "schedules", "activities"
   add_foreign_key "users", "companies"
 end
