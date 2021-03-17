@@ -11,10 +11,10 @@ Booking.destroy_all
 Activity.destroy_all
 
 
-trainer_user = User.create!(role: 'trainer', email: 'beax7@gmail.com', first_name: 'Beatrice', last_name: 'Rogers', password: 'Beatrice123', bio: 'ex-dancer and nutrition expert with passion for movement and making each workout fun')
-employee_user = User.create!(role: 'employee', email: 'amandat9@gmail.com', first_name: 'Amanda', last_name: 'Tex', password: 'Amanda123', bio: 'passionate coder who loves to run and to develop her yoga practice')
-company_user = User.create!(role: 'employer', email: 'bossl5@gmail.com', first_name: 'Teresa', last_name: 'Morales', password: 'Teresa123', bio: 'HR manager excited to enhance the wellbeing of my team' )
-user = User.create!(role: 'employee', email: 'martak9@gmail.com', first_name: 'Marta', last_name: 'Kas', password: 'Marta123', bio: 'enjoyes team sports and hiking')
+trainer_user = User.create!(role: 'Trainer', email: 'beax1433@gmail.com', first_name: 'Beatrice', last_name: 'Rogers', password: 'Beatrice123', bio: 'ex-dancer and nutrition expert with passion for movement and making each workout fun')
+employee_user = User.create!(role: 'Employee', email: 'amandat5343@gmail.com', first_name: 'Amanda', last_name: 'Tex', password: 'Amanda123', bio: 'passionate coder who loves to run and to develop her yoga practice')
+company_user = User.create!(role: 'Employer', email: 'bossl55453@gmail.com', first_name: 'Teresa', last_name: 'Morales', password: 'Teresa123', bio: 'HR manager excited to enhance the wellbeing of my team' )
+user = User.create!(role: 'Employee', email: 'martak965@gmail.com', first_name: 'Marta', last_name: 'Kas', password: 'Marta123', bio: 'enjoyes team sports and hiking')
 
 9.times do
   activity = Activity.create!(
