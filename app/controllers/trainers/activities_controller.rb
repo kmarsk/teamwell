@@ -3,6 +3,8 @@ class Trainers::ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
     @bookings = @activity.bookings
+    @schedule = Schedule.new
+    @schedules = @activity.schedules
   end
 
   # def dashboard
@@ -21,7 +23,7 @@ class Trainers::ActivitiesController < ApplicationController
     else
       render 'new'
     end
-  end 
+  end
 
   def edit
     @activity = Activity.find(params[:id])

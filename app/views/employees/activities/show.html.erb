@@ -13,17 +13,14 @@
     <p>Trainer : <%= @activity.user.first_name %></p>
     <p>Equipment: <%= @activity.equipment %></p>
     <p>Duration : <%= @activity.duration %> minutes</p>
-    <p>Frequency : <%= @activity.frequency %></p>
       </div>
      </div>
 
 
   <div>
   <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
-  <%= f.input :date, as: :date, html5: true %>
-  <%= f.input :time, as: :time,  html5: true %>
+  <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id%>
 
-  #WE NEED TO FIX THE DATE BEING STORED IN TIME. DO AFTER DEMO
 
   <%= f.submit "Book class", class: "btn btn-primary" %>
   </div>
