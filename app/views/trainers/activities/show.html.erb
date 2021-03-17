@@ -8,13 +8,14 @@
   <strong>Description:</strong>
   <%= @activity.description%>
 </p>
-
+<%= link_to "edit", edit_trainers_activity_path(@activity) %>
 <p>
   <strong>Length:</strong>
   <%= @activity.duration%>
 </p>
 
-<%= link_to 'Destroy', trainers_activity_path(@activity), method: :delete %>
+<%= link_to 'Destroy', trainers_activity_path(@activity), method: :delete, data: { confirm: "Are you sure?" } %>
+                                              
 
 </div>
 
@@ -26,5 +27,6 @@
 
  <%= link_to "Back", employees_activities_path %>      
 
+<button>View All classes</button>
 
 
