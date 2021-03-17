@@ -25,6 +25,22 @@ class Trainers::ActivitiesController < ApplicationController
     end
   end
 
+  def edit
+    @activity = Activity.find(params[:id])
+  end
+
+  
+  def update
+    @activity = Activity.find(params[ :id])
+
+   if @activity.update(activity_params)
+     redirect_to trainers_dashboards_path
+   else
+     render :edit
+   end
+  end    
+      
+
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
@@ -34,7 +50,7 @@ class Trainers::ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:category, :time, :date, :frequency, :equipment, :duration, :description)
+    params.require(:activity).permit(:category, :time, :date, :frequency, :equipment, :duration, :description, :photo)
   end
 end
 
