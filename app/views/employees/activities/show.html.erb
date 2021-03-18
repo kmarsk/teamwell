@@ -1,9 +1,10 @@
 <div class="card-product">
   <img src="https://d357mttm70bw7x.cloudfront.net/normal_4015c1e1-a3bb-450a-9278-e361cfd4b22c.jpg" />
-    <div class="card-product-infos">
+  <div class="card-product-infos">
     <div><h2>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong> THROUGH MOVEMENT</h2></div>
     <br>
     <br>
+
 
 
 
@@ -22,19 +23,14 @@
 
       </div>
      </div>
-
+    
 
   <div>
-  <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
-  <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id%>
-
-
-  <%= f.submit "Book class", class: "btn btn-primary" %>
+    <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
+      <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id%>
+      <%= f.submit "Book class", class: "btn btn-primary" %>
+    <% end %>
   </div>
-
-
-
-  <% end %>
 </div>
 
 
