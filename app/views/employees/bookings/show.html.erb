@@ -1,14 +1,26 @@
- <div class="d-flex flex-row">
-   <div class="card-product">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-6DG8e2GECF00p_-Mu4hrz1rFjUngWKIvbg&usqp=CAU">
+<div class="main-container">
+  <div class="card-product">
+   <%= cl_image_tag activity_image_key( @booking.schedule.activity) %>
     <div class="card-product-infos">
       <h2>Wonderful - you are booked for <strong> <%= @booking.schedule.activity.category %></strong>!</h2>
-      <br>
+      <p>Connection is an essential part of human existence.<p>
       <p>Date: <strong> <%= "#{@booking.schedule.date.day}/#{@booking.schedule.date.month}/#{@booking.schedule.date.year}" %></strong></p>
       <p>Time: <strong> <%= "#{@booking.schedule.time.hour}:#{@booking.schedule.time.min}" %></strong></p>
-      <p>Trainer:  <%= @booking.schedule.activity.user.first_name%></p>
-      <br>
-      <p><%= link_to 'Back', employees_dashboards_path, class: "btn btn-primary"%></p>
+     
     </div>
   </div>
+  
+  <div class="card-product">
+    <%= cl_image_tag user_image_key(@booking.schedule.activity.user) %>
+    <div class="card-product-infos">
+      <br>
+      <h2>Perfect your movements with this trainer who will take you through ways to achieve your goals.</h2> 
+      <p>Trainer: <strong> <%= @booking.schedule.activity.user.fullname %></strong></p>
+      <p>Bio: <strong> <%= @booking.schedule.activity.user.bio %></strong></p>
+      <br>
+      <p><%= link_to 'Back', employees_dashboards_path, class: "btn btn-secondary"%></p>
+    </div>
+  </div>
+</div> 
+
 
