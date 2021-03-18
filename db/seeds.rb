@@ -1,3 +1,5 @@
+require 'open-uri'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -11,45 +13,91 @@ Company.destroy_all
 Activity.destroy_all
 
 
-trainer_user = User.create!(role: 'Trainer', email: 'beax1433@gmail.com', first_name: 'Beatrice', last_name: 'Rogers', password: 'Beatrice123', bio: 'ex-dancer and nutrition expert with passion for movement and making each workout fun')
-employee_user = User.create!(role: 'Employee', email: 'amandat5343@gmail.com', first_name: 'Amanda', last_name: 'Tex', password: 'Amanda123', bio: 'passionate coder who loves to run and to develop her yoga practice')
-company_user = User.create!(role: 'Employer', email: 'bossl55453@gmail.com', first_name: 'Teresa', last_name: 'Morales', password: 'Teresa123', bio: 'HR manager excited to enhance the wellbeing of my team' )
-user = User.create!(role: 'Employee', email: 'martak965@gmail.com', first_name: 'Marta', last_name: 'Kas', password: 'Marta123', bio: 'enjoyes team sports and hiking')
+#-------------------------------------------------------TRAINER SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
+trainer1= User.create!(role: 'Trainer', email: 'broger@gmail.com', first_name: 'Beatrice', last_name: 'Rogers', password: '123456', bio: 'ex-dancer and nutrition expert with passion for movement and making each workout fun')
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616073498/pexels-wellington-cunha-1918445_dmmq2o.jpg")
+trainer1 = User.last
+trainer1.photo.attach(io: file, filename: 'some-image.jpg')
+trainer1.save!
 
-9.times do
-  activity = Activity.create!(
-    category: ['yoga', 'pilates', 'barre', 'sculpt'].sample,
-    date: [Date.today, Date.today + 2.days].sample,
-    time: [Time.now, Time.now + 2.hours].sample,
-    frequency: [ 'weekly', 'monthly', 'daily', 'every lunchtime'].sample,
-    equipment: ['yoga matt', 'bands', 'weights', 'socks'].sample,
-    description: ['high intensity cardio', 'gentle slow flow with static poses', 'muscle activation, strenghtening', 'relaxing, calming practice'].sample,
-    duration: ['20', '45', '60', '90'].sample,
-    user_id: trainer_user.id,
-  )
-end
+trainer2= User.create!(role: 'Trainer', email: 'schavez@gmail.com', first_name: 'Sade', last_name: 'Chavez', password: '123456', bio: 'Traveling Yogi who loves to help others find inner peace')
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616073781/pexels-polina-kovaleva-6019890_bcfpsn.jpg")
+trainer2 = User.last
+trainer2.photo.attach(io: file, filename: 'some-image.jpg')
+trainer2.save!
+
+trainer3= User.create!(role: 'Trainer', email: 'jknott@gmail.com', first_name: 'John', last_name: 'Knott', password: '123456', bio: 'Ex marine and 2015 golden gloves champion who teach you about self defense and whip you up into the best shape of your life')
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616083596/daniel-rigdon-dXmXKPP2L4E-unsplash_a69vh6.jpg")
+trainer3 = User.last
+trainer3.photo.attach(io: file, filename: 'some-image.jpg')
+trainer3.save!
+#-------------------------------------------------------EMPLOYEE SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
+employee1= User.create!(role: 'Employee', email: 'mhiroshi@gmail.com', first_name: 'Megumi', last_name: 'Hiroshi', password: '123456', bio: 'Photographer looking to become more active before the 9-5.')
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616083596/daniel-rigdon-dXmXKPP2L4E-unsplash_a69vh6.jpg")
+employee1 = User.last
+employee1.photo.attach(io: file, filename: 'some-image.jpg')
+employee1.save!
+
+employee2= User.create!(role: 'Trainer', email: 'jatkinson@gmail.com', first_name: 'John', last_name: 'Atkinson', password: '123456', bio: 'Goofy stand-up comedian looking to get as stron as my punchlines')
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616083597/christian-buehner-DItYlc26zVI-unsplash_tmyacm.jpg")
+employee2 = User.last
+employee2.photo.attach(io: file, filename: 'some-image.jpg')
+employee2.save!
+#-------------------------------------------------------ACTIVITY SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
+activity1 = Activity.create!(category: 'Yoga', equipment: "Yoga mat, towel and yoga leggings or shorts", description: "Lets create a union between the soul, body and mind", duration: 60, user_id: trainer2.id)
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616085347/kike-vega-F2qh3yjz6Jk-unsplash_1_qtqfni.jpg")
+activity1 = Activity.last
+activity1.photo.attach(io: file, filename: 'some-image.jpg')
+activity1.save!
+
+activity2 = Activity.create!(category: 'Salsa', equipment: "A partner and your best dance shoes. ", description: "A dance which composed of African sounds devloped in 1920's Cuba.", duration: 90, user_id: trainer1.id)
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616086226/isaiah-mcclean-9_D4NtyYHE8-unsplash_jngbob.jpg")
+activity2 = Activity.last
+activity2.photo.attach(io: file, filename: 'some-image.jpg')
+activity2.save!
+
+activity3 = Activity.create!(category: 'Conditioning', equipment: "A jumprope, dumbells, a yoga mat and a pull-up bar.", description: "Get in the best physical shape of your life.", duration: 60, user_id: trainer3.id)
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616086543/jakayla-toney-oN6WEp3tbjE-unsplash_eajmok.jpg")
+activity3 = Activity.last
+activity3.photo.attach(io: file, filename: 'some-image.jpg')
+activity3.save!
+#-------------------------------------------------------BOOKING SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-3.times do
-  booking = Booking.create!(
-    date: [Date.today, Date.today + 2.days].sample,
-    time: [Time.now, Time.now + 2.hours].sample,
-    user_id: employee_user.id,
-    activity_id: Activity.all.sample.id
-  )
-end
+#9.times do
+#  activity = Activity.create!(
+#    category: ['yoga', 'pilates', 'barre', 'sculpt'].sample,
+#    date: [Date.today, Date.today + 2.days].sample,
+#    time: [Time.now, Time.now + 2.hours].sample,
+#    frequency: [ 'weekly', 'monthly', 'daily', 'every lunchtime'].sample,
+#    equipment: ['yoga matt', 'bands', 'weights', 'socks'].sample,
+#    description: ['high intensity cardio', 'gentle slow flow with static poses', 'muscle activation, strenghtening', 'relaxing, calming practice'].sample,
+#    duration: ['20', '45', '60', '90'].sample,
+#    user_id: trainer1.id,
+#  )
+#end
+
+
+#3.times do
+#  booking = Booking.create!(
+#    date: [Date.today, Date.today + 2.days].sample,
+#    time: [Time.now, Time.now + 2.hours].sample,
+#    user_id: employee_user.id,
+#    activity_id: Activity.all.sample.id
+#  )
+#end
 
 
 
-3.times do
-    company = Company.create!(
-    name: ['Apple', 'Microsoft', 'Intel'].sample,
-    user_id: company_user.id,
-  )
-end
+#3.times do
+#    company = Company.create!(
+#    name: ['Apple', 'Microsoft', 'Intel'].sample,
+#    user_id: company_user.id,
+#  )
+#end
 
-employee_user.company_id = Company.last.id
-employee_user.save!
+#employee_user.company_id = Company.last.id
+#employee_user.save!
 
 
 
