@@ -12,6 +12,7 @@ class Employees::ActivitiesController < ApplicationController
         @activity= Activity.find(params[:id])
         @booking = Booking.new
         @schedules = @activity.schedules.where("date >= ?", Date.today)
+        @favorite = current_user.favorites.find_by(activity_id: @activity.id)
     end
 
 
