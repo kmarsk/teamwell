@@ -20,8 +20,8 @@
 </div>
 
  <div id="bookings">
-  <% @bookings.each do || %>
-        <p id="booking-<%= booking.id %>"> <%= booking.date %> <%= booking.user.email %></p>
+  <% @bookings.each do |booking| %>
+        <p id="booking-<%= booking.id %>"> <%= booking.schedule.date %> <%= booking.user.email %></p>
 
       <% end %>
 
@@ -60,6 +60,6 @@
 <% end %>
 
 
-<button>View All classes</button>
+<%= link_to "View All Classes", trainers_dashboards_path %>
 
 
