@@ -1,33 +1,26 @@
 <div class="card-product">
   <img src="https://d357mttm70bw7x.cloudfront.net/normal_4015c1e1-a3bb-450a-9278-e361cfd4b22c.jpg" />
-    <div class="card-product-infos">
+  <div class="card-product-infos">
     <div><h2>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong> THROUGH MOVEMENT</h2></div>
     <br>
     <br>
+    
+    <div class>
+      <strong><h2><%= @activity.category %></strong></h2>
 
-
-
-    <div class><strong><h2><%= @activity.category %></strong></h2>
-
-    <p>Description:  <%= @activity.description%></p>
-    <p>Trainer : <%= @activity.user.first_name %></p>
-    <p>Equipment: <%= @activity.equipment %></p>
-    <p>Duration : <%= @activity.duration %> minutes</p>
-      </div>
-     </div>
-
-
-  <div>
-  <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
-  <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id%>
-
-
-  <%= f.submit "Book class", class: "btn btn-primary" %>
+      <p>Description:  <%= @activity.description%></p>
+      <p>Trainer : <%= @activity.user.first_name %></p>
+      <p>Equipment: <%= @activity.equipment %></p>
+      <p>Duration : <%= @activity.duration %> minutes</p>
+    </div>
   </div>
 
-
-
-  <% end %>
+  <div>
+    <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
+      <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id%>
+      <%= f.submit "Book class", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
 
