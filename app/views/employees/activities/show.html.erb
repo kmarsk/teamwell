@@ -13,6 +13,13 @@
     <p>Trainer : <%= @activity.user.first_name %></p>
     <p>Equipment: <%= @activity.equipment %></p>
     <p>Duration : <%= @activity.duration %> minutes</p>
+    <br>
+    <% if @favorite %>
+      <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
+    <% else %>
+      <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
+    <% end %>
+
       </div>
      </div>
 

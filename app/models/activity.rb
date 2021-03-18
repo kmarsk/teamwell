@@ -3,4 +3,5 @@ class Activity < ApplicationRecord
   belongs_to :user
   has_many :schedules, dependent: :destroy
   has_many :bookings, through: :schedules
+  has_many :favorites, dependent: :destroy
 end
