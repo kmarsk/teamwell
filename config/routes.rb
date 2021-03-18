@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :employees do
     resources :dashboards, only: [:index]
      resources :activities, only: [:index, :show] do
+      resources :favorites, only: [:create, :destroy]
       resources :bookings, only: [:create, :show]
      end
   end

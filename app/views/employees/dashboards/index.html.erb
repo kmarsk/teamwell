@@ -1,26 +1,47 @@
-<h1>Welcome <%= @employee.first_name%></h1>
-<%= form_tag employees_activities_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a class"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+<div class= "main-container">
+  <div class="container-padding">
+<!--     <h2><%= @employee.first_name%>'s dashboard</h2>
 
-  <div class="cards">
-   <% @bookings.each do |booking| %>
+ -->
+<div class="dashboard_search">
+ <%= form_tag employees_activities_path, method: :get do %>
+      <%= text_field_tag :query,
+                          params[:query],
+                          class: "form-control",
+                          placeholder: "Find an activity you'd like to try out" %>
+      <%= submit_tag "Search", class: "btn btn-outline-secondary btn-sm btn-block" %>
+    <% end %>
+  </div>
+
+    <br>
+    <br>
+
+
+    <h2>Upcoming classes</h2>
+    <div class="cards">
+      <% @bookings.each do |booking| %>
         <% if booking.user_id == current_user.id%>
-            <%= link_to  employees_activity_booking_path(booking.schedule.activity_id, booking.id) do %>
-                <div id ="user-bookings" class="card-product", text-align="center", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url('https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/18/2019/09/Aulas-de-Yoga.jpg')">
-                </div>
-                <strong class="card-text"><%= "#{booking.schedule.activity.category}"%></strong>
-                <p> <%= "#{booking.schedule.date.day}/#{booking.schedule.date.month}/#{booking.schedule.date.year} - #{booking.schedule.time.hour}: #{booking.schedule.time.min} "  %> </p>
-            <% end %>
+          <%= link_to  employees_activity_booking_path(booking.schedule.activity_id, booking.id) do %>
+            <div id ="user-bookings" class="card-product", text-align="center", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url('https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/18/2019/09/Aulas-de-Yoga.jpg')">
+            </div>
+            <strong class="card-text"><p><%= "#{booking.schedule.activity.category}"%></p>
+            <p> <%= "#{booking.schedule.date.day}/#{booking.schedule.date.month}/#{booking.schedule.date.year} - #{booking.schedule.time.hour}: #{booking.schedule.time.min} "  %> </p></strong>
+          <% end %>
         <% end %>
-    <%end%>
+      <%end%>
+    </div>
 
+    <h2>Favourite classes</h2>
+    <div class="cards">
+      <% @favorites.each do |favorite| %>
+        <%= link_to  employees_activity_path(favorite.activity_id) do %>
+          <div id ="user-bookings" class="card-product", text-align="center", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url('https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/18/2019/09/Aulas-de-Yoga.jpg')">
+          </div>
+          <strong class="card-text"><%= "#{favorite.activity.category}"%></strong>
+        <% end %>
+      <%end%>
+    </div>
+  </div>
 </div>
-<% end %>
-
 
 

@@ -33,8 +33,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
-//= require moment 
+//= require moment
 //= require fullcalendar
 //= require fullcalendar/locale-all
 
-$('#calendar').fullCalendar({});
+

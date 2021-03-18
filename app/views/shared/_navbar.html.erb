@@ -28,6 +28,8 @@
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
+        <% else %>
+          <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-dark"%>
       <% end %>
     </ul>
   </div>
