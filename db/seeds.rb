@@ -61,43 +61,65 @@ file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616086543/
 activity3 = Activity.last
 activity3.photo.attach(io: file, filename: 'some-image.jpg')
 activity3.save!
-#-------------------------------------------------------BOOKING SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+activity4 = Activity.create!(category: 'Meditation', equipment: "A peaceful and quiet place", description: "Find inner peace", duration: 30, user_id: trainer2.id)
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616095200/jared-rice-NTyBbu66_SI-unsplash_lyasyo.jpg")
+activity4 = Activity.last
+activity4.photo.attach(io: file, filename: 'some-image.jpg')
+activity4.save!
+
+activity5 = Activity.create!(category: 'Belly Dancing', equipment: "Hip scarf, skirt, top, pantaloons, bedleh and headband.", description: "Come learn the oldest form of dance according to many.", duration: 60, user_id: trainer1.id)
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616095359/vitor-pinto-6QWLOSS6-Dk-unsplash_rjnlsm.jpg")
+activity5 = Activity.last
+activity5.photo.attach(io: file, filename: 'some-image.jpg')
+activity5.save!
+
+activity6 = Activity.create!(category: 'Boxing', equipment: "Boxing gloves, hand wraps, head guard and mouth guard ", description: "Get in the ring and take part in the world's most popular combat sport!", duration: 60, user_id: trainer3.id)
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616095700/natalie-runnerstrom-TiVwpVnPuVk-unsplash_o33jsk.jpg")
+activity6 = Activity.last
+activity6.photo.attach(io: file, filename: 'some-image.jpg')
+activity6.save!
+#-------------------------------------------------------SCHEDULE SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-#9.times do
-#  activity = Activity.create!(
-#    category: ['yoga', 'pilates', 'barre', 'sculpt'].sample,
-#    date: [Date.today, Date.today + 2.days].sample,
-#    time: [Time.now, Time.now + 2.hours].sample,
-#    frequency: [ 'weekly', 'monthly', 'daily', 'every lunchtime'].sample,
-#    equipment: ['yoga matt', 'bands', 'weights', 'socks'].sample,
-#    description: ['high intensity cardio', 'gentle slow flow with static poses', 'muscle activation, strenghtening', 'relaxing, calming practice'].sample,
-#    duration: ['20', '45', '60', '90'].sample,
-#    user_id: trainer1.id,
-#  )
+def time_rand from = Time.now, to = Time.now.next_year(1).to_time
+    Time.at(from + rand * (to.to_f - from.to_f))
+end
+
+def schedule_activity(activity)
+    3.times do
+         schedule = Schedule.create!(
+          date: time_rand,
+          time: time_rand,
+          activity_id: activity.id
+        )
+    end  
+end
+
+schedule_activity(activity1)
+schedule_activity(activity2)
+schedule_activity(activity3)
+schedule_activity(activity4)
+schedule_activity(activity5)
+schedule_activity(activity6)
+
+#def booking_activity(employee)
+#    3.times do
+#        booking1 = Schedule.create!(
+#          activity_id: activity2.id
+#        )
+#    end
+#
 #end
 
 
 #3.times do
-#  booking = Booking.create!(
-#    date: [Date.today, Date.today + 2.days].sample,
-#    time: [Time.now, Time.now + 2.hours].sample,
-#    user_id: employee_user.id,
-#    activity_id: Activity.all.sample.id
+#  booking1 = Schedule.create!(
+#    date: time_rand,
+#    time: time_rand,
+#    activity_id: activity2.id
 #  )
 #end
-
-
-
-#3.times do
-#    company = Company.create!(
-#    name: ['Apple', 'Microsoft', 'Intel'].sample,
-#    user_id: company_user.id,
-#  )
-#end
-
-#employee_user.company_id = Company.last.id
-#employee_user.save!
 
 
 

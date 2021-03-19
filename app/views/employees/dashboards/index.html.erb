@@ -18,18 +18,23 @@
 
 
     <h2>Upcoming classes</h2>
-    <div class="cards">
+    <div class="cards"style="border">
       <% @bookings.each do |booking| %>
         <% if booking.user_id == current_user.id%>
           <%= link_to  employees_activity_booking_path(booking.schedule.activity_id, booking.id) do %>
-            <div id ="user-bookings" class="card-product", text-align="center", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url('https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/18/2019/09/Aulas-de-Yoga.jpg')">
+            <div id ="user-bookings" class="card-product", text-align="center", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= cl_image_path activity_image_key(@activity) %>)">
             </div>
-            <strong class="card-text"><p><%= "#{booking.schedule.activity.category}"%></p>
+            <div class="card-text"><p> <strong><%= "#{booking.schedule.activity.category}"%></p>
             <p> <%= "#{booking.schedule.date.day}/#{booking.schedule.date.month}/#{booking.schedule.date.year} - #{booking.schedule.time.hour}: #{booking.schedule.time.min} "  %> </p></strong>
+            </div>
           <% end %>
         <% end %>
       <%end%>
     </div>
+
+       <br>
+    <br>
+
 
     <h2>Favourite classes</h2>
     <div class="cards">
@@ -37,7 +42,7 @@
         <%= link_to  employees_activity_path(favorite.activity_id) do %>
           <div id ="user-bookings" class="card-product", text-align="center", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url('https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/18/2019/09/Aulas-de-Yoga.jpg')">
           </div>
-          <strong class="card-text"><%= "#{favorite.activity.category}"%></strong>
+          <strong class="card-text"><p><%= "#{favorite.activity.category}"%></p></strong>
         <% end %>
       <%end%>
     </div>

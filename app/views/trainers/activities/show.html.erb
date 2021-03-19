@@ -21,9 +21,9 @@
 
  <div id="bookings">
   <% @bookings.each do |booking| %>
-        <p id="booking-<%= booking.id %>"> <%= booking.schedule.date %> <%= booking.user.email %></p>
+      <p id="booking-<%= booking.id %>"> <%= booking.schedule.date %> <%= booking.user.email %></p>
 
-      <% end %>
+       <% end %>
 
  <%= link_to "Back", employees_activities_path %>
 
