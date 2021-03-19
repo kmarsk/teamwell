@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 100px;
+  line-height: 0.1;
 }
 
 .card-product img {
@@ -17,15 +18,9 @@
 }
 
 .card-product h2 {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: roboto;
   margin: 10;
-
-}
-
-.card-product card-text {
-  align: center;
-
 }
 
 .card-product p {
@@ -39,9 +34,14 @@
 
 .card-text {
   text-align: center;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
+  color: #324F5D;
+  line-height: 2;
+  border: solid;
+  border-width: thin;
 
 }
+
 
 .card-product .card-product-infos {
   padding: 100px;
@@ -137,18 +137,24 @@
   }
 
   .card-category {
-    background-size: cover;
+
     background-position: center;
-    height: 200px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 24px;
+    text-align: center;
+    color: #f4f9f9;
+    font-size: 20px;
+    text-decoration: none;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    height: 300px;
+    box-shadow: 0 0 15px rgba(141, 147, 230, 0);
+    align-items: center;
+
+
+
   }
 
 
