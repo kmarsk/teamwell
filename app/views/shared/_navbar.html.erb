@@ -11,25 +11,42 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
+        <% if user_signed_in? %>
+          <% if current_user.role == "Trainer" %>
+            <%= link_to "Dashboard", trainers_dashboards_path, class: "nav-link"%>
+          <% else current_user.role == "Employee" %>
+            <%= link_to "Dashboard", trainers_dashboards_path, class: "nav-link"%>
+          <% end %>
+        <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "Classes",  employees_activities_path, class: "nav-link" %>
+        <% if user_signed_in? %>
+          <% if current_user.role == "Trainer" %>
+            <%= link_to "Classes", trainers_activities_path, class: "nav-link"%>
+          <% elsif current_user.role == "Employee" %>
+            <%= link_to "Classes", employees_activities_path, class: "nav-link"%>
+          <% else %>
+            <%= link_to "Classes", employees_activities_path, class: "nav-link"%>
+          <% end %>
+        <% end %>
+      </li> 
+      <li>
+        <% if user_signed_in? == false %>
+          <%= link_to 'Log in', new_user_session_path, class: "btn btn-dark" %>
+        <% end %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <%= cl_image_tag user_image_key(current_user), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <% if current_user.role == "trainer" %>
-              <%= link_to "Dashboard", trainers_dashboards_path, class: "dropdown-item" %>
+            <% if current_user.role == "Trainer" %>
+              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
             <% else %>
               <%= link_to "Dashboard", employees_dashboards_path, class: "dropdown-item" %>
             <%end%>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
-        <% else %>
-          <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-dark"%>
       <% end %>
     </ul>
   </div>
