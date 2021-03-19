@@ -21,8 +21,9 @@
 
  <div id="bookings">
   <% @bookings.each do |booking| %>
-    <p id="booking-<%= booking.id %>"> <%= booking.schedule.date %> <%= booking.user.email %></p>
-  <% end %>
+      <p id="booking-<%= booking.id %>"> <%= booking.schedule.date %> <%= booking.user.email %></p>
+
+       <% end %>
 
  <%= link_to "Back", employees_activities_path %>
 
@@ -59,6 +60,6 @@
 <% end %>
 
 
-<button>View All classes</button>
+<%= link_to "View All Classes", trainers_dashboards_path %>
 
 

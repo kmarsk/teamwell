@@ -1,4 +1,5 @@
-<%= simple_form_for [:trainers, @activity] do |f| %>
+<div class="container">
+ <%= simple_form_for [:trainers, @activity] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <div class="form-inputs">
@@ -8,7 +9,8 @@
     <%= f.input :description %>
     <%= f.input :duration, input_html: { min: '0', step: '15' } %>
   </div>
-  <div class="form-actions">
+  <div class="form-actions ">
     <%= f.button :submit %>
   </div>
-<% end %>
+ <% end %>
+</div>
