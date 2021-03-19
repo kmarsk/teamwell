@@ -15,7 +15,7 @@
 
     <h2 class="mt-5 mb-4"> Upcoming classes</h2>
 
-    <div class="cards"style="border">
+    <div class="cards">
       <% @bookings.each do |booking| %>
         <% if booking.user_id == current_user.id%>
           <div class="entire-card">
@@ -23,12 +23,9 @@
               <div id ="user-bookings" class="card-product" text-align="center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= cl_image_path activity_image_key(@activity) %>)">
               </div>
               <div class="card-text">
-                <h3 class="mt-2 mb-0"> <strong><%= "#{booking.schedule.activity.category}"%></h3></strong>
-
+                <h3 class="mt-2 mb-0"> <strong><%= "#{booking.schedule.activity.category.capitalize}"%></h3></strong>
                 <p class="mt-0 mb-0"> <i class="far fa-clock"></i><%= " #{booking.schedule.time.hour}:#{booking.schedule.time.min} "%> </p>
                  <p>  <i class="far fa-calendar-alt"></i><%= "   #{booking.schedule.date.day}/#{booking.schedule.date.month}/#{booking.schedule.date.year}" %></p>
-
-
               </div>
             <% end %>
           </div>
