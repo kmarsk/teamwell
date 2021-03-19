@@ -1,36 +1,31 @@
-<div class="card-product">
-  <%= cl_image_tag @activity.photo.key, height: 300, width: 400, crop: :fill %>
-  <div class="card-product-infos">
-    <div><h2>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong> THROUGH MOVEMENT</h2></div>
-    <br>
-    <br>
+<div class="d-flex justify-content-between container mt-5">
+  <%= cl_image_tag @activity.photo.key, height: 400, width: 400, crop: :fill %>
 
-    <div class><strong><h2><%= @activity.category %></strong></h2>
+  <div class="activity-box">
+    <div>
+      <h1>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong> THROUGH MOVEMENT</h1>
+      <h2><strong><h2><%= @activity.category %></strong></h2>
+      <p>Description:  <%= @activity.description%></p>
+      <p>Trainer : <%= @activity.user.first_name %></p>
+      <p>Equipment: <%= @activity.equipment %></p>
+      <p>Duration : <%= @activity.duration %> minutes</p>
 
-    <p>Description:  <%= @activity.description%></p>
-    <p>Trainer : <%= @activity.user.first_name %></p>
-    <p>Equipment: <%= @activity.equipment %></p>
-    <p>Duration : <%= @activity.duration %> minutes</p>
-    <br>
-    <% if @favorite %>
-      <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
-    <% else %>
-      <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
-    <% end %>
-
-      </div>
-     </div>
+      <% if @favorite %>
+        <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
+      <% else %>
+        <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
+      <% end %>
+    </div>
     
-
-  <div>
-    <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
-      <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id%>
-      <%= f.submit "Book class", class: "btn btn-primary" %>
-    <% end %>
+    <div class="border-top border-dark pt-5 mt-4">
+      <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
+        <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id%>
+        <%= f.submit "Book class", class: "btn btn-primary" %>
+      <% end %>
+      
+    </div>
   </div>
 </div>
-
-
 
 
 

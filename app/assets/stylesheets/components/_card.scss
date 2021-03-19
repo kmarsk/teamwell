@@ -164,23 +164,38 @@
   
   .banner h1 {
     margin: 0;
-    color: black;
+    color: white;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    font-size: 32px;
+    font-size: 60px;
     font-weight: bold;
   }
-  
-  .banner p {
-    font-size: 20px;
-    color: white;
-    opacity: .7;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  }
-  
+    
   .flexbox {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: roboto;
+    margin-top: 100px;
+  }
+
+  .trainer-box {
+    width: 40%;
   }
   
+  i{
+    color:#324f5d;
+  }
+  
+  .activity-box {
+    width: 50%;
+  }
+
+  .activity-box h1 {
+    font-size: 30px;
+  }
+  .activity-box p {
+    font-size: 20px;
+  }
    
   
