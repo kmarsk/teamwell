@@ -1,5 +1,5 @@
 <div class="card-product">
-  <img src="https://d357mttm70bw7x.cloudfront.net/normal_4015c1e1-a3bb-450a-9278-e361cfd4b22c.jpg" />
+  <%= cl_image_tag @activity.photo.key, height: 300, width: 400, crop: :fill %>
   <div class="card-product-infos">
     <div><h2>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong> THROUGH MOVEMENT</h2></div>
     <br>
