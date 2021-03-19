@@ -102,15 +102,24 @@ schedule_activity(activity3)
 schedule_activity(activity4)
 schedule_activity(activity5)
 schedule_activity(activity6)
+#-------------------------------------------------------BOOKING SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#def booking_activity(employee)
-#    3.times do
-#        booking1 = Schedule.create!(
-#          activity_id: activity2.id
-#        )
-#    end
-#
-#end
+
+
+def booking_activity(employee)
+    6.times do
+        booking1 = Booking.create!(
+          user_id: employee.id,
+          schedule_id: Schedule.all.sample.id
+        )
+    end
+
+end
+
+booking_activity(employee1)
+booking_activity(employee2)
+
+
 
 
 #3.times do
