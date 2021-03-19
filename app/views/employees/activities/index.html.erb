@@ -1,12 +1,18 @@
+<div class= "main-container">
+  <div class="container-padding">
 
-  <%= form_tag employees_activities_path, method: :get do %>
-      <%= text_field_tag :query,
-                          params[:query],
-                          class: "form-control",
-                          placeholder: "Find an activity you'd like to try out" %>
-      <%= submit_tag "Search", class: "btn btn-outline-secondary btn-sm btn-block" %>
+   <%= form_tag employees_activities_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <%= text_field_tag :query,
+                              params[:query],
+                              class: "form-control",
+                              placeholder: "Find an activity you'd like to try out" %>
+        <button name="button" type="submit" class="btn btn-flat btn-primary">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
     <% end %>
-  </div>
+
 
 <div class="container">
   <div class="cards">
@@ -19,12 +25,14 @@
       <% end %>
     <% end %>
   </div>
-</div> 
+</div>
+
+ </div>
+</div>
 
 
- 
 
- 
- 
+
+
 
 
