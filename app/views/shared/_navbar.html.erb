@@ -21,13 +21,11 @@
       </li>
       <li class="nav-item">
         <% if user_signed_in? %>
-          <% if current_user.role == "Trainer" %>
-            <%= link_to "Classes", trainers_activities_path, class: "nav-link"%>
-          <% else %> current_user.role == "Employee" %>
+          <% if current_user.role == "Employee" %>
             <%= link_to "Classes", employees_activities_path, class: "nav-link"%>
           <% end %>
         <% else %>
-          <%= link_to "Classes", employees_activities_path, class: "nav-link"%> 
+            <%= link_to "Classes", employees_activities_path, class: "nav-link"%>
         <% end %>
       </li> 
       <li>
