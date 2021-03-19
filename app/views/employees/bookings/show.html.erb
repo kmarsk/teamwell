@@ -1,26 +1,23 @@
-<div class="main-container">
-  <div class="card-product">
-   <%= cl_image_tag activity_image_key( @booking.schedule.activity) %>
-    <div class="card-product-infos">
-      <h2>Wonderful - you are booked for <strong> <%= @booking.schedule.activity.category %></strong>!</h2>
-      <p>Connection is an essential part of human existence.<p>
-      <p>Date: <strong> <%= "#{@booking.schedule.date.day}/#{@booking.schedule.date.month}/#{@booking.schedule.date.year}" %></strong></p>
-      <p>Time: <strong> <%= "#{@booking.schedule.time.hour}:#{@booking.schedule.time.min}" %></strong></p>
-     
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @booking.schedule.activity.photo.key %>)"> 
+  <div class="container">
+   <h1><strong><%= @booking.schedule.activity.category %></strong></h1>
   </div>
   
-  <div class="card-product">
-    <%= cl_image_tag user_image_key(@booking.schedule.activity.user) %>
-    <div class="card-product-infos">
-      <br>
-      <h2>Perfect your movements with this trainer who will take you through ways to achieve your goals.</h2> 
-      <p>Trainer: <strong> <%= @booking.schedule.activity.user.fullname %></strong></p>
-      <p>Bio: <strong> <%= @booking.schedule.activity.user.bio %></strong></p>
-      <br>
-      <p><%= link_to 'Back', employees_dashboards_path, class: "btn btn-secondary"%></p>
-    </div>
-  </div>
-</div> 
+  <%= cl_image_tag @booking.schedule.activity.user.photo.key, class: "medium-avatar" %>
+</div>
 
 
+
+<div  class="flexbox">
+  <div>
+    <h2>Trainer: <strong> <%= @booking.schedule.activity.user.fullname %></strong></h2>
+    <p>Bio: <%= @booking.schedule.activity.user.bio %></p>
+  </div> 
+  <div>
+    <h1>Wonderful, you booked <strong> <%= @booking.schedule.activity.category %></strong>!</h1>
+    <p>Connection is an essential part of human existence.<p>
+    <p>Date: <strong> <%= "#{@booking.schedule.date.day}/#{@booking.schedule.date.month}/#{@booking.schedule.date.year}" %></strong></p>
+    <p>Time: <strong> <%= "#{@booking.schedule.time.hour}:#{@booking.schedule.time.min}" %></strong></p>
+  </div> 
+</div>
+<p><%= link_to 'Back', employees_dashboards_path, class: "btn btn-secondary"%></p>
