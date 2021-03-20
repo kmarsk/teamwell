@@ -182,48 +182,49 @@ div.hr-line {
     box-shadow: 0 0 15px rgba(141, 147, 230, 0);
     align-items: center;
 
-
-
   }
 
-
-  .main-card {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 16px;
+  .banner {
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0;
+    text-align: center;
+  }
+  
+  .banner h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 60px;
+    font-weight: bold;
+  }
+    
+  .flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: roboto;
+    margin-top: 100px;
   }
 
-  // Smallest device
-  @media (min-width: 100px) and (max-width: 575px) {
-    .main-card {
-      grid-template-columns: 1fr;
-    }
+  .trainer-box {
+    width: 40%;
+  }
+  
+  i{
+    color:#324f5d;
+  }
+  
+  .activity-box {
+    width: 50%;
   }
 
-  // Small devices (landscape phones, 576px and up)
-  @media (min-width: 576px) {
-    .main-card {
-      grid-template-columns: 1fr;
-    }
+  .activity-box h1 {
+    font-size: 30px;
   }
-
-  // Medium devices (tablets, 768px and up)
-  @media (min-width: 768px) {
-    .main-card {
-      grid-template-columns: 1fr 1fr;
-    }
+  .activity-box p {
+    font-size: 20px;
   }
-
-  // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {
-    .main-card{
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-
-  // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-    .main-card {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
+   
+  
