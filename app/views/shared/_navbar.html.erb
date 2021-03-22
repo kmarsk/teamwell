@@ -14,8 +14,8 @@
         <% if user_signed_in? %>
           <% if current_user.role == "Trainer" %>
             <%= link_to "Dashboard", trainers_dashboards_path, class: "nav-link"%>
-            <% else %>
-              <%= link_to "Dashboard", employees_dashboards_path, class: "nav-link"%>
+          <% else current_user.role == "Employee" %>
+            <%= link_to "Dashboard", trainers_dashboards_path, class: "nav-link"%>
           <% end %>
         <% end %>
       </li>
