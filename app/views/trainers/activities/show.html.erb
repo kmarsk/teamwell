@@ -22,15 +22,17 @@
     <br>
     <br>
     <br>
-
-  <div class="border-top border-dark pt-5 mt-3">   
+    
+  <div class="border-top border-dark pt-5 mt-3">  
+     <p><i class="fas fa-users"> Trainer:</i></p> 
     <div id="bookings">
       <% @bookings.each do |booking| %>
         <p id="booking-<%= booking.id %>"> <%= booking.schedule.date %> <%= booking.user.email %></p>
 
       <% end %>
+      
   </div>
-    
+           
       <p><i class="fas fa-calendar-check"> Class schedule:</i></p> 
 
   <div id="schedules">
@@ -56,8 +58,8 @@
 
 
    <p><%= link_to "View All Classes", trainers_dashboards_path, class: "btn btn-primary" %></p>
-  
- </div>
    <p><%= link_to "Back", employees_activities_path, class: "btn btn-primary" %></p>
+
+ </div>
 </div>
 
