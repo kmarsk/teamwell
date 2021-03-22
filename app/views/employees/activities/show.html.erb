@@ -15,18 +15,18 @@
       <% if @favorite %>
         <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
       <% else %>
-        <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
+         <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
       <% end %>
-      </div> 
+      </div>
      </div>
-    
+
     <div class="border-top border-dark pt-5 mt-3">
       <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
         <p><i class="fas fa-calendar-check"></i></p>
         <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id, label: false%>
         <%= f.submit "Book class", class: "btn btn-primary" %>
       <% end %>
-      
+
     </div>
   </div>
 </div>
