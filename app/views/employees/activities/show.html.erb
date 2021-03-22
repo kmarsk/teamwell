@@ -1,31 +1,37 @@
 <div class="d-flex justify-content-between container mt-5">
-  <%= cl_image_tag @activity.photo.key, height: 400, width: 400, crop: :fill %>
+  <%= cl_image_tag @activity.photo.key, radius: 25, height: 400, width: 400, crop: :fill %>
 
   <div class="activity-box">
     <div>
-      <h1>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong> THROUGH MOVEMENT</h1>
-      <h2><strong><h2><%= @activity.category %></strong></h2>
-      <p>Description:  <%= @activity.description%></p>
-      <p>Trainer : <%= @activity.user.first_name %></p>
-      <p>Equipment: <%= @activity.equipment %></p>
-      <p>Duration : <%= @activity.duration %> minutes</p>
+      <h1>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong></h1>
 
+      <h2 class="pt-4 mt-2"><strong><h2><%= @activity.category %></strong></h2>
+      <p><i class="fas fa-spa"></i>         <%= @activity.description%></p>
+      <p><i class="fas fa-user-check"></i>  <%= @activity.user.first_name %></p>
+      <p><i class="fas fa-dumbbell"></i>    <%= @activity.equipment %></p>
+      <p><i class="fas fa-clock"></i>       <%= @activity.duration %> minutes</p>
+
+     <div class="pt-2 mt-4">
       <% if @favorite %>
         <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
       <% else %>
         <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
       <% end %>
-    </div>
+      </div> 
+     </div>
     
-    <div class="border-top border-dark pt-5 mt-4">
+    <div class="border-top border-dark pt-5 mt-3">
       <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
-        <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id%>
+        <p><i class="fas fa-calendar-check"></i></p>
+        <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id, label: false%>
         <%= f.submit "Book class", class: "btn btn-primary" %>
       <% end %>
       
     </div>
   </div>
 </div>
+
+
 
 
 
