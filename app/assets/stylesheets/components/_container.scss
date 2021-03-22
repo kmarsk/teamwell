@@ -1,0 +1,16 @@
+.containerbox {
+  display: flex;
+  justify-content: space-between;
+}
+.item {
+  width: 600px;
+  height: 250px;
+  margin: auto;
+  padding: 100px 80px 20px 80px;
+  text-align: center;
+}
+.item p {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+}
