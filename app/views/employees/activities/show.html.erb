@@ -19,10 +19,18 @@
         <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
       <% else %>
 
+
+         <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
+      <% end %>
+      </div>
+     </div>
+
+
          <p><%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %><p>
       <% end %>
       </div>
      
+
     <div class="border-top border-dark pt-5 mt-3">
 
        <p><%= link_to '<i class="fas fa-heart"></i> Favorite'.html_safe, employees_activity_favorites_path(@activity), method: :POST, title: "FAVORITE" %></p>
