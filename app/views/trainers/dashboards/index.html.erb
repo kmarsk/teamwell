@@ -16,7 +16,7 @@
         <% @activities.each do |activity| %>
           <div class="entire-card">
             <%= link_to trainers_activity_path(activity.id) do %>
-              <div id ="user-bookings" class="card-product" text-align="center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= cl_image_path activity_image_key(@activity) %>)">
+              <div id ="user-bookings" class="card-product" text-align="center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path activity_image_key(@activity) %>)">
               </div>
               <div class="card-text">
                 <h3 class="mt-2 mb-0"> <strong><%= activity.category.capitalize %></h3></strong>
