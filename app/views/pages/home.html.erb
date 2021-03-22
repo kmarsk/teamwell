@@ -9,13 +9,22 @@
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
         <h3 class="display-4">Start your wellbeing journey </h3>
-        <p> <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-light"%>
-        </p>
 
+        <% if !user_signed_in? %>
+          <p> <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-light"%>
+          </p>
+          <% elsif current_user.role == "Trainer" %>
+            <%= link_to " To Dashboard", trainers_dashboards_path, class: "btn btn-outline-light"%>
+          <% elsif current_user.role == "Employee" %>
+            <%= link_to " To Dashboard", employees_dashboards_path, class: "btn btn-outline-light"%>
+          <% end %>
       </div>
     </div>
   </div>
 </header>
+
+
+
 
 <!-- <section class="my-5">
   <div class="container">
