@@ -27,7 +27,7 @@ trainer2.photo.attach(io: file, filename: 'some-image.jpg')
 trainer2.save!
 
 trainer3= User.create!(role: 'Trainer', email: 'jknott@gmail.com', first_name: 'John', last_name: 'Knott', password: '123456', bio: 'Ex marine and 2015 golden gloves champion who teach you about self defense and whip you up into the best shape of your life')
-file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616083596/daniel-rigdon-dXmXKPP2L4E-unsplash_a69vh6.jpg")
+file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616073583/pexels-thisisengineering-3912953_zli8vp.jpg")
 trainer3 = User.last
 trainer3.photo.attach(io: file, filename: 'some-image.jpg')
 trainer3.save!
@@ -38,7 +38,7 @@ employee1 = User.last
 employee1.photo.attach(io: file, filename: 'some-image.jpg')
 employee1.save!
 
-employee2= User.create!(role: 'Trainer', email: 'jatkinson@gmail.com', first_name: 'John', last_name: 'Atkinson', password: '123456', bio: 'Goofy stand-up comedian looking to get as stron as my punchlines')
+employee2= User.create!(role: 'Employee', email: 'jatkinson@gmail.com', first_name: 'John', last_name: 'Atkinson', password: '123456', bio: 'Goofy stand-up comedian looking to get as stron as my punchlines')
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616083597/christian-buehner-DItYlc26zVI-unsplash_tmyacm.jpg")
 employee2 = User.last
 employee2.photo.attach(io: file, filename: 'some-image.jpg')
@@ -82,14 +82,21 @@ activity6.save!
 #-------------------------------------------------------SCHEDULE SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-def time_rand from = Time.now, to = Time.now.next_year(1).to_time
+def date_rand from = Time.now, to = Time.now.next_year(1).to_time
     Time.at(from + rand * (to.to_f - from.to_f))
+end
+
+def time_rand
+    hour = 6..22
+    minute = [00, 15, 30, 45]
+
+    return "#{rand(hour)}:#{minute.sample.to_i}"
 end
 
 def schedule_activity(activity)
     3.times do
          schedule = Schedule.create!(
-          date: time_rand,
+          date: date_rand,
           time: time_rand,
           activity_id: activity.id
         )
