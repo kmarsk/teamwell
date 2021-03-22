@@ -38,7 +38,7 @@ employee1 = User.last
 employee1.photo.attach(io: file, filename: 'some-image.jpg')
 employee1.save!
 
-employee2= User.create!(role: 'Trainer', email: 'jatkinson@gmail.com', first_name: 'John', last_name: 'Atkinson', password: '123456', bio: 'Goofy stand-up comedian looking to get as stron as my punchlines')
+employee2= User.create!(role: 'Employee', email: 'jatkinson@gmail.com', first_name: 'John', last_name: 'Atkinson', password: '123456', bio: 'Goofy stand-up comedian looking to get as stron as my punchlines')
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616083597/christian-buehner-DItYlc26zVI-unsplash_tmyacm.jpg")
 employee2 = User.last
 employee2.photo.attach(io: file, filename: 'some-image.jpg')
