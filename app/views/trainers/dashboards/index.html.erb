@@ -1,22 +1,33 @@
 <div class= "main-container">
-  <div class="container-padding">
-    <h2><%= @trainer.first_name%>'s dashboard</h2>
+ <div class="container-padding">
+   <!--  <h2><%= @trainer.first_name%>'s dashboard</h2> -->
    <!-- <h1>DASHBOARD!</h1> -->
 
+   <h2 class="mt-5 mb-4"> Upcoming bookings</h2>
+    <div class="cards">
+        <% @bookings.each do |booking| %>
+         <div class="entire-card">
+          <%= link_to trainers_activity_path(booking.schedule.activity.id) do %>
+              <div id ="user-bookings" class="card-product" text-align="center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= cl_image_path activity_image_key(@activity) %>)">
+              </div>
+              <div class="card-text">
+                 <h3 class="mt-2 mb-0"> <strong><%= booking.schedule.activity.category.capitalize %></h3></strong>
+                  <p class="mt-2 mb-0">  <i class="far fa-calendar-alt"></i><%= " #{booking.schedule.date_formatted}" %></p>
 
+              </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
-      <div class="create">
-        <%= link_to "Click to Create Your Next Class", new_trainers_activity_path, class: "btn btn-lg btn btn-primary"%>
-      </div>
+<div class="hr-line"></div>
 
-
-
-
+    <h2 class="mt-5 mb-4"> My classes</h2>
       <div class="cards">
         <% @activities.each do |activity| %>
           <div class="entire-card">
             <%= link_to trainers_activity_path(activity.id) do %>
-              <div id ="user-bookings" class="card-product" text-align="center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path activity_image_key(activity) %>)">
+              <div id ="user-bookings" class="card-product" text-align="center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= cl_image_path activity_image_key(@activity) %>)">
               </div>
               <div class="card-text">
                 <h3 class="mt-2 mb-0"> <strong><%= activity.category.capitalize %></h3></strong>
@@ -26,25 +37,11 @@
         <% end %>
       </div>
 
+  <div class="create">
+     <%= link_to "Create Class", new_trainers_activity_path, class: "btn btn-lg btn btn-primary"%>
+  </div>
 
 
-
-
-
-
-<!--
-<p>Future bookings</p>
-<div class="cards">
-    <% @bookings.each do |booking| %>
-      <%= link_to trainers_activity_path(booking.schedule.activity.id) do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path activity_image_key(booking.schedule.activity) %>)">
-          <%= booking.schedule.activity.category %> - <%= booking.schedule.date_formatted %>
-        </div>
-      <% end %>
-    <% end %>
-  </div> -->
-
-
-
- </div>
+  </div>
 </div>
+
