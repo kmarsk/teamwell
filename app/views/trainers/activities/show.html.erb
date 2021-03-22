@@ -1,10 +1,9 @@
 <div class="main-container"> 
   <div class="container-padding">
-   <div class="color-grey mt-4 pt-1"><strong>Dear Trainer, what you want to do? </strong></div>
-     <br>
-     <br>
+   <div class="color-grey mt-4 pt-5"><strong>Dear Trainer, what you want to do? </strong></div>
+    <%= cl_image_tag @activity.photo.key, radius: 25, height: 400, width: 400, crop: :fill %>
 
-    <p class="color-grey"><strong>Type:</strong></p>
+    <p class="border-top border-dark color-grey mt-4 pt-5"><strong>Type:</strong></p>
     <p><%= @activity.category%></p>
 
     <p class="color-grey"><strong>Description:</strong></p>
