@@ -12,44 +12,32 @@
       <p><i class="fas fa-clock"></i>       <%= @activity.duration %> minutes</p>
 
     
-     </div>
+    </div>
     
-     <div class="pt-2 mt-4">
+    <div class="pt-2 mt-4">
       <% if @favorite %>
-        <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
+       <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
       <% else %>
-
-
-         <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
+       <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
       <% end %>
-      </div>
-     </div>
+     
+    </div>
 
-
-         <p><%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %><p>
-      <% end %>
-      </div>
+    <div>
+      <p><%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %><p>
+    </div>
      
 
     <div class="border-top border-dark pt-5 mt-3">
-
        <p><%= link_to '<i class="fas fa-heart"></i> Favorite'.html_safe, employees_activity_favorites_path(@activity), method: :POST, title: "FAVORITE" %></p>
-      <% end %>
-      </div> 
+    </div> 
       
     <div class="border-top border-dark pt-5 mt-5">
-
       <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
         <p><i class="fas fa-calendar-check"></i> Classes</p>
         <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id, label: false%>
         <%= f.submit "Book class", class: "btn btn-primary" %>
       <% end %>
-
     </div>
   </div>
 </div>
-
-
-
-
-
