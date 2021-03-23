@@ -1,22 +1,23 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path activity_image_key(@activity) %>)">
   <div class="container">
-         <h1><strong>Dear trainer, these are your activities: </strong></h1>
- </div>
+    <h1><strong>Dear trainer, these are your activities: </strong></h1>
+  </div>
 </div>
 
+
 <div class="container">
-  <div  class="flexbox">
+  <div  class="border-bottom border-dark flexbox mt-5 pt-5" style="align-items:flex-start">
     <div class="trainer-box">
      
        
-    <p class="color-grey mt-3 pt-1"><strong>Type:</strong>
-      <%= @activity.category%></p>
+      <p class="color-grey"><strong>Type:</strong>
+        <%= @activity.category%></p>
 
-    <p class="color-grey"><strong>Description:</strong>
-     <%= @activity.description%></p>
+      <p class="color-grey"><strong>Description:</strong>
+      <%= @activity.description%></p>
 
-    <p class="color-grey"><strong>Duration:</strong>
-      <%= @activity.duration%></p>
+      <p class="color-grey"><strong>Duration:</strong>
+        <%= @activity.duration%></p>
      
   
      <div class="d-flex justify-content-between mt-5 pt-3">
@@ -25,50 +26,48 @@
     
        <%= link_to 'Destroy',  trainers_activity_path(@activity), class: "btn btn-info", method: :delete, data: { confirm: "Are you sure?" } %></p>
        
-    </div> 
-  </div>
+       </div> 
+    </div>
+        <div class="pt-1">  
+          <p><i class="fas fa-users"> Trainer:</i></p> 
+     
+        <div id="bookings">
+          <p><%= @activity.user.first_name %></p>
+        </div>
+          <p><div><i class="fas fa-calendar-check"> Class schedule:</i>
 
-  <div class="pt-1">  
-     <p><i class="fas fa-users"> Trainer:</i></p> 
-    <div id="bookings">
-      <% @bookings.each do |booking| %>
-        <p id="booking-<%= booking.id %>"> <%= booking.schedule.date %> <%= booking.user.email %></p>
-
-      <% end %>
-      
-  </div>
+         <p id="schedules">
+        <% @schedules.each do |schedule| %>
+           <%= schedule.date_formatted %></p>
+           <p><% end %></p>
+           </p>
            
-      <p><i class="fas fa-calendar-check"> Class schedule:</i></p> 
+      </div>
 
-  <div id="schedules">
-   <% @schedules.each do |schedule| %>
-      <p> <%= schedule.date_formatted %></p>
-    <p><% end %></p>
-      
     </div>
   </div>
 </div>   
-
+<div class="container">
     <h1 class="color-grey mt-4"><strong>Add classes:</strong></h1>
 
   <%= simple_form_for [:trainers, @activity, @schedule] do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs mt-2 pt-4">
-    <%= f.input :date, as: :date, html5: true%>
-    <%= f.input :time, as: :time, html5: true%>
-  </div>
+    <div class="form-inputs mt-2 pt-4">
+      <%= f.input :date, as: :date, html5: true%>
+      <%= f.input :time, as: :time, html5: true%>
+    </div>
 
-  <div class="form-actions mt-4 pt-5">
-    <%= f.button :submit, class: "btn btn-primary"  %> 
-  </div>
-  <p><% end %></p>
+    <div class="form-actions mt-4 pt-5">
+      <%= f.button :submit, class: "btn btn-primary"  %> 
+    </div>
+    <p><% end %></p>
 
  
    <p><div class="d-flex justify-content-between"><%= link_to "View All Classes", trainers_dashboards_path, class: "btn btn-primary" %>
    <%= link_to "Back", employees_activities_path, class: "btn btn-primary" %></div></p>
 
- </div>
+    </div>
+  </div>
 </div>
-

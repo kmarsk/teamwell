@@ -5,6 +5,7 @@ class Trainers::ActivitiesController < ApplicationController
     @bookings = @activity.bookings
     @schedule = Schedule.new
     @schedules = @activity.schedules
+    
   end
 
   # def dashboard
