@@ -1,28 +1,32 @@
-<div class="main-container"> 
-  <div class="container-padding">
-   <div class="color-grey mt-4 pt-5"><strong>Dear Trainer, what you want to do? </strong></div>
-    <%= cl_image_tag @activity.photo.key, radius: 25, height: 400, width: 400, crop: :fill %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path activity_image_key(@activity) %>)">
+  <div class="container">
+         <h1><strong>Dear trainer, these are your activities: </strong></h1>
+ </div>
+</div>
 
-    <p class="border-top border-dark color-grey mt-4 pt-5"><strong>Type:</strong></p>
-    <p><%= @activity.category%></p>
+<div class="container">
+  <div  class="flexbox">
+    <div class="trainer-box">
+     
+    <p class="color-grey mt-4 pt-5"><strong>Type:</strong>
+      <%= @activity.category%></p>
 
-    <p class="color-grey"><strong>Description:</strong></p>
-    <p><%= @activity.description%></p>
+    <p class="color-grey"><strong>Description:</strong>
+     <%= @activity.description%></p>
 
-    <p class="color-grey"><strong>Duration:</strong></p>
-    <p><%= @activity.duration%></p>
-    <br>
-    <br>  
-
-    <p><%= link_to "edit", edit_trainers_activity_path(@activity), class: "btn btn-primary" %></p>
-    <br>
+    <p class="color-grey"><strong>Duration:</strong>
+      <%= @activity.duration%></p>
+     
+  
+     <div class="d-flex justify-content-between mt-5 pt-3">
+       <p><%= link_to "edit", edit_trainers_activity_path(@activity), class: "btn btn-primary" %></p>
+   
     
-    <p><%= link_to 'Destroy',  trainers_activity_path(@activity), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %></ p>
-    <br>
-    <br>
-    <br>
-    
-  <div class="border-top border-dark pt-5 mt-3">  
+       <p><%= link_to 'Destroy',  trainers_activity_path(@activity), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %></p>
+       
+    </div> 
+  </div>
+<div class="pt-5 mt-3">  
      <p><i class="fas fa-users"> Trainer:</i></p> 
     <div id="bookings">
       <% @bookings.each do |booking| %>
@@ -36,10 +40,14 @@
 
   <div id="schedules">
    <% @schedules.each do |schedule| %>
-      <p> <%= schedule.date %> <%= schedule.time %></p>
+      <p> <%= schedule.date_formatted %></p>
     <p><% end %></p>
       
-    <p class="color-grey"><strong>Add more classes:</strong></p>
+    </div>
+  </div>
+</div>   
+
+    <h1 class="color-grey mt-4"><strong>Add classes:</strong></h1>
 
   <%= simple_form_for [:trainers, @activity, @schedule] do |f| %>
     <%= f.error_notification %>
@@ -55,9 +63,9 @@
   </div>
   <p><% end %></p>
 
-
+ 
    <p><%= link_to "View All Classes", trainers_dashboards_path, class: "btn btn-primary" %></p>
-   <p><%= link_to "Back", employees_activities_path, class: "btn btn-primary" %></p>
+   <div class="d-flex justify-content-end  mt-5"><%= link_to "Back", employees_activities_path, class: "btn btn-primary" %></div>
 
  </div>
 </div>
