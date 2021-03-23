@@ -1,43 +1,52 @@
-<div class="d-flex justify-content-between container mt-5">
-  <%= cl_image_tag activity_image_key(@activity), radius: 25, height: 400, width: 400, crop: :fill %>
+<div class= "main-container">
+  <div class="container-padding">
+  <div class="d-flex justify-content-between container mt-5">
 
-  <div class="activity-box">
-    <div>
-      <h1>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong></h1>
 
-      <h2 class="pt-4 mt-2"><strong><h2><%= @activity.category %></strong></h2>
-      <p><i class="fas fa-spa"></i>         <%= @activity.description%></p>
-      <p><i class="fas fa-user-check"></i>  <%= @activity.user.first_name %></p>
-      <p><i class="fas fa-dumbbell"></i>    <%= @activity.equipment %></p>
-      <p><i class="fas fa-clock"></i>       <%= @activity.duration %> minutes</p>
+    <%= cl_image_tag activity_image_key(@activity), radius: 25, height: 400, width: 400, crop: :fill %>
 
-    
-    </div>
-    
-    <div class="pt-2 mt-4">
-      <% if @favorite %>
-       <%= link_to 'Remove class from favorites',  employees_activity_favorite_path(@activity, @favorite), method: :delete %>
-      <% else %>
-       <%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %>
-      <% end %>
-     
-    </div>
+    <div class="activity-box">
+      <div>
+        <h1>IMPROVE YOUR <strong> MIND</strong> AND <strong>BODY</strong></h1>
 
-    <div>
-      <p><%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %><p>
-    </div>
-     
+        <h2 class="pt-4 mt-2"><strong><h2><%= @activity.category %></strong></h2>
+        <p><i class="fas fa-spa"></i>         <%= @activity.description%></p>
+        <p><i class="fas fa-user-check"></i>  <%= @activity.user.first_name %></p>
+        <p><i class="fas fa-dumbbell"></i>    <%= @activity.equipment %></p>
+        <p><i class="fas fa-clock"></i>       <%= @activity.duration %> minutes</p>
 
-    <div class="border-top border-dark pt-5 mt-3">
-       <p><%= link_to '<i class="fas fa-heart"></i> Favorite'.html_safe, employees_activity_favorites_path(@activity), method: :POST, title: "FAVORITE" %></p>
-    </div> 
-      
-    <div class="border-top border-dark pt-5 mt-5">
-      <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
-        <p><i class="fas fa-calendar-check"></i> Classes</p>
-        <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id, label: false%>
-        <%= f.submit "Book class", class: "btn btn-primary" %>
-      <% end %>
+
+      </div>
+
+
+
+     <!--  <div>
+        <p><%= link_to 'Add class to favorites', employees_activity_favorites_path(@activity), method: :POST %><p>
+      </div>
+        -->
+
+      <div class="border-top border-dark pt-3 mt-3">
+  <!--        <p><%= link_to '<i class="fas fa-heart"></i> Favorite'.html_safe, employees_activity_favorites_path(@activity), method: :POST, title: "FAVORITE" %></p>
+   -->
+   <div class="pt-2 mt-4">
+        <% if @favorite %>
+         <%= link_to '<i class="fas fa-heart fa-lg"></i> Remove from favorites'.html_safe, employees_activity_favorite_path(@activity, @favorite), method: :delete %>
+        <% else %>
+         <%= link_to '<i class="fas fa-heart fa-lg"></i> Add to favorites'.html_safe, employees_activity_favorites_path(@activity), method: :POST %>
+        <% end %>
+
+      </div>
+
+      </div>
+
+      <div class="border-top border-dark pt-5 mt-5">
+        <%= simple_form_for  [:employees, @activity, @booking ] do |f| %>
+          <p><i class="fas fa-calendar-check"></i> Classes</p>
+          <%= f.association :schedule, collection: @schedules, label_method: :date_formatted, value_method: :id, label: false%>
+          <%= f.submit "Book class", class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>
 </div>

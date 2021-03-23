@@ -1,8 +1,10 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @booking.schedule.activity.photo.key %>)"> 
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @booking.schedule.activity.photo.key %>)">
   <div class="container">
    <h1><strong><%= @booking.schedule.activity.category %></strong></h1>
   </div>
-  
+
   <div class="parent">
     <div class="child">
     <%= cl_image_tag @booking.schedule.activity.user.photo.key, class: "medium-avatar" %>
@@ -11,18 +13,20 @@
 </div>
 
 
+
 <div class="container">
   <div  class="flexbox">
     <div class="trainer-box">
       <h2><strong> <%= @booking.schedule.activity.user.fullname %></strong></h2>
       <p><%= @booking.schedule.activity.user.bio.capitalize %></p>
-    </div> 
+    </div>
     <div>
       <h2><i class="fas fa-check-square"></i><strong> Booked <%= @booking.schedule.activity.category %></strong>!</h2>
       <p><i class="fas fa-users"></i> Connection is an essential part of human existence.<p>
       <p><i class="fas fa-calendar-check"></i><strong> <%= "#{@booking.schedule.date.day}/#{@booking.schedule.date.month}/#{@booking.schedule.date.year}" %></strong></p>
       <p><i class="fas fa-clock"></i> <strong> <%= "#{@booking.schedule.time.hour}:#{@booking.schedule.time.min}" %></strong></p>
-    </div> 
+    </div>
   </div>
   <p><%= link_to 'Back', employees_dashboards_path, class: "btn btn-secondary"%></p>
 </div>
+
