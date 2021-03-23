@@ -46,7 +46,7 @@
       <% @favorites.each do |favorite| %>
         <div class="entire-card">
           <%= link_to  employees_activity_path(favorite.activity_id) do %>
-            <div id ="user-bookings" class="card-product" text-align="center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url('https://blogmedia.evbstatic.com/wp-content/uploads/wpmulti/sites/18/2019/09/Aulas-de-Yoga.jpg')">
+            <div id ="user-bookings" class="card-product" text-align="center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url(<%= cl_image_path activity_image_key(favorite.activity) %>)">
             </div>
             <div class="card-text"><h3 class="mt-2 mb-2"><strong><%= "#{favorite.activity.category}"%></h3></strong>
             </div>
