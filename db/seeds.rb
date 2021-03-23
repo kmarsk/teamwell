@@ -12,9 +12,8 @@ Booking.destroy_all
 Company.destroy_all
 Activity.destroy_all
 
-
 #-------------------------------------------------------TRAINER SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
-trainer1= User.create!(role: 'Trainer', email: 'broger@gmail.com', first_name: 'Beatrice', last_name: 'Rogers', password: '123456', bio: 'ex-dancer and nutrition expert with passion for movement and making each workout fun')
+trainer1= User.create!(role: 'Trainer', email: 'broger@gmail.com', first_name: 'Beatrice', last_name: 'Rogers', password: '123456', bio: 'Ex-dancer and nutrition expert with a passion for movement and making each workout fun!')
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616073498/pexels-wellington-cunha-1918445_dmmq2o.jpg")
 trainer1 = User.last
 trainer1.photo.attach(io: file, filename: 'some-image.jpg')
@@ -26,19 +25,19 @@ trainer2 = User.last
 trainer2.photo.attach(io: file, filename: 'some-image.jpg')
 trainer2.save!
 
-trainer3= User.create!(role: 'Trainer', email: 'jknott@gmail.com', first_name: 'John', last_name: 'Knott', password: '123456', bio: 'Ex marine and 2015 golden gloves champion who teach you about self defense and whip you up into the best shape of your life')
+trainer3= User.create!(role: 'Trainer', email: 'jknott@gmail.com', first_name: 'John', last_name: 'Knott', password: '123456', bio: 'Ex marine and 2015 golden gloves champion who will teach you about self defense and whip you into the best shape of your life')
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616073583/pexels-thisisengineering-3912953_zli8vp.jpg")
 trainer3 = User.last
 trainer3.photo.attach(io: file, filename: 'some-image.jpg')
 trainer3.save!
 #-------------------------------------------------------EMPLOYEE SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
-employee1= User.create!(role: 'Employee', email: 'mhiroshi@gmail.com', first_name: 'Megumi', last_name: 'Hiroshi', password: '123456', bio: 'Photographer looking to become more active before the 9-5.')
+employee1= User.create!(role: 'Employee', email: 'mhiroshi@gmail.com', first_name: 'Megumi', last_name: 'Hiroshi', password: '123456', bio: 'Photographer looking to become more active before the 9-5 grind.')
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616083596/daniel-rigdon-dXmXKPP2L4E-unsplash_a69vh6.jpg")
 employee1 = User.last
 employee1.photo.attach(io: file, filename: 'some-image.jpg')
 employee1.save!
 
-employee2= User.create!(role: 'Employee', email: 'jatkinson@gmail.com', first_name: 'John', last_name: 'Atkinson', password: '123456', bio: 'Goofy stand-up comedian looking to get as stron as my punchlines')
+employee2= User.create!(role: 'Employee', email: 'jatkinson@gmail.com', first_name: 'John', last_name: 'Atkinson', password: '123456', bio: 'Goofy stand-up comedian looking to get as strong as my punchlines')
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616083597/christian-buehner-DItYlc26zVI-unsplash_tmyacm.jpg")
 employee2 = User.last
 employee2.photo.attach(io: file, filename: 'some-image.jpg')
@@ -50,13 +49,13 @@ activity1 = Activity.last
 activity1.photo.attach(io: file, filename: 'some-image.jpg')
 activity1.save!
 
-activity2 = Activity.create!(category: 'Salsa', equipment: "A partner and your best dance shoes. ", description: "A dance which composed of African sounds devloped in 1920's Cuba.", duration: 90, user_id: trainer1.id)
+activity2 = Activity.create!(category: 'Salsa', equipment: "A partner and your best dance shoes. ", description: "A dance composed of African sounds developed in 1920's Cuba.", duration: 90, user_id: trainer1.id)
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616086226/isaiah-mcclean-9_D4NtyYHE8-unsplash_jngbob.jpg")
 activity2 = Activity.last
 activity2.photo.attach(io: file, filename: 'some-image.jpg')
 activity2.save!
 
-activity3 = Activity.create!(category: 'Conditioning', equipment: "A jumprope, dumbells, a yoga mat and a pull-up bar.", description: "Get in the best physical shape of your life.", duration: 60, user_id: trainer3.id)
+activity3 = Activity.create!(category: 'Conditioning', equipment: "A jumprope, dumbells, a yoga mat and a pull-up bar.", description: "Get in the best shape of your life.", duration: 60, user_id: trainer3.id)
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616086543/jakayla-toney-oN6WEp3tbjE-unsplash_eajmok.jpg")
 activity3 = Activity.last
 activity3.photo.attach(io: file, filename: 'some-image.jpg')
@@ -68,7 +67,7 @@ activity4 = Activity.last
 activity4.photo.attach(io: file, filename: 'some-image.jpg')
 activity4.save!
 
-activity5 = Activity.create!(category: 'Belly Dancing', equipment: "Hip scarf, skirt, top, pantaloons, bedleh and headband.", description: "Come learn the oldest form of dance according to many.", duration: 60, user_id: trainer1.id)
+activity5 = Activity.create!(category: 'Belly Dancing', equipment: "Hip scarf, skirt, top, pantaloons, bedleh and headband.", description: "Come learn the oldest form of dance according to many historians.", duration: 60, user_id: trainer1.id)
 file = open("https://res.cloudinary.com/nostalgicalien/image/upload/v1616095359/vitor-pinto-6QWLOSS6-Dk-unsplash_rjnlsm.jpg")
 activity5 = Activity.last
 activity5.photo.attach(io: file, filename: 'some-image.jpg')
@@ -82,22 +81,20 @@ activity6.save!
 #-------------------------------------------------------SCHEDULE SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-def date_rand from = Time.now, to = Time.now.next_year(1).to_time
+def date_rand from = Time.now, to = Time.now.next_month(1).to_time
     Time.at(from + rand * (to.to_f - from.to_f))
 end
 
-def time_rand
-    hour = 6..22
-    minute = [00, 15, 30, 45]
-
-    return "#{rand(hour)}:#{minute.sample.to_i}"
+def time_rand      
+    time = rand(8..22).hours + (rand(2) * 30).minutes
+    return time       
 end
 
 def schedule_activity(activity)
     3.times do
          schedule = Schedule.create!(
           date: date_rand,
-          time: time_rand,
+          time: date_rand,
           activity_id: activity.id
         )
     end  
@@ -110,9 +107,6 @@ schedule_activity(activity4)
 schedule_activity(activity5)
 schedule_activity(activity6)
 #-------------------------------------------------------BOOKING SEEDS-------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
 def booking_activity(employee)
     6.times do
         booking1 = Booking.create!(
@@ -125,19 +119,3 @@ end
 
 booking_activity(employee1)
 booking_activity(employee2)
-
-
-
-
-#3.times do
-#  booking1 = Schedule.create!(
-#    date: time_rand,
-#    time: time_rand,
-#    activity_id: activity2.id
-#  )
-#end
-
-
-
-
-

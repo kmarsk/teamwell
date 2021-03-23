@@ -2,7 +2,7 @@ class Employees::BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @activity = Activity.find(params[:activity_id])
-    @booking.user = current_user
+    @bookings.user = current_user
     @booking.save
     redirect_to employees_activity_booking_path(@activity, @booking)
   end

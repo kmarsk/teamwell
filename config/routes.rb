@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :employees do
     resources :dashboards, only: [:index]
-     resources :activities, only: [:index, :show] do
+    resources :activities, only: [:index, :show] do
       resources :favorites, only: [:create, :destroy]
       resources :bookings, only: [:create, :show]
-     end
+    end
   end
 
   namespace :trainers do
