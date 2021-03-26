@@ -1,6 +1,8 @@
 .containerbox {
   display: flex;
   justify-content: space-between;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
 }
 .item {
   width: 600px;
@@ -14,3 +16,31 @@
   font-weight: bold;
   font-family: "Nunito", "Helvetica", "sans-serif";
 }
+
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .containerbox {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .containerbox {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .containerbox {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .containerbox {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  }
