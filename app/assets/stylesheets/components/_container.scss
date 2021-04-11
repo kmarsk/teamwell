@@ -21,6 +21,7 @@
 @media (min-width: 100px) and (max-width: 575px) {
   .containerbox {
     grid-template-columns: 1fr;
+    display: block;
   }
 }
 
@@ -35,6 +36,7 @@
 @media (min-width: 768px) {
   .containerbox {
     grid-template-columns: 1fr 1fr;
+
   }
 }
 
@@ -44,3 +46,6 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
   }
+
+
+
