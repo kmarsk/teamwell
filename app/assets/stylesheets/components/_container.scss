@@ -3,6 +3,15 @@
   justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  padding-bottom: 30px;
+}
+
+
+.wrapperbox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
 }
 .item {
   width: 600px;
@@ -18,49 +27,58 @@
 }
 
 .item-boxI {
-  height: 450px;
   margin: auto;
+  flex-direction: column;
   padding: 100px 80px 20px 80px;
   text-align: center;
   flex: 1;
+
 
 }
 
 .item-boxII {
-  height: 450px;
-  margin: auto;
+  height: 350px;
+  flex-direction: column;
+  margin: 0;
   padding: 100px 80px 20px 80px;
   text-align: center;
   padding: 100px 0px 0px 0px;
-  flex: 1;
+  box-sizing: unset;
+
 
 }
 
 .item-boxIII {
-  height: 450px;
+  height: 350px;
+  flex-direction: column;
   margin: auto;
   padding: 100px 80px 20px 80px;
   text-align: center;
   padding: 0px 80px 20px 0px;
-  flex: 1;
+  box-sizing: unset;
+
 }
 
 .item-boxIV {
-  height: 450px;
+  height: 350px;
+  flex-direction: column;
   margin: auto;
   padding: 100px 80px 20px 80px;
   text-align: center;
-  flex: 1;
+
 }
 
 .item-boxIV p {
   font-size: 24px;
   font-weight: bold;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+
 }
 
 .item-boxI p {
   font-size: 24px;
   font-weight: bold;
+  font-family: "Nunito", "Helvetica", "sans-serif";
 }
 
 
