@@ -17,6 +17,52 @@
   font-family: "Nunito", "Helvetica", "sans-serif";
 }
 
+.item-boxI {
+  height: 450px;
+  margin: auto;
+  padding: 100px 80px 20px 80px;
+  text-align: center;
+  flex: 1;
+
+}
+
+.item-boxII {
+  height: 450px;
+  margin: auto;
+  padding: 100px 80px 20px 80px;
+  text-align: center;
+  padding: 100px 0px 0px 0px;
+  flex: 1;
+
+}
+
+.item-boxIII {
+  height: 450px;
+  margin: auto;
+  padding: 100px 80px 20px 80px;
+  text-align: center;
+  padding: 0px 80px 20px 0px;
+  flex: 1;
+}
+
+.item-boxIV {
+  height: 450px;
+  margin: auto;
+  padding: 100px 80px 20px 80px;
+  text-align: center;
+  flex: 1;
+}
+
+.item-boxIV p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.item-boxI p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 
 @media (min-width: 100px) and (max-width: 575px) {
   .containerbox {
