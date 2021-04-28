@@ -12,6 +12,29 @@
   width: 100%;
   grid-template-columns: 1fr 1fr;
 }
+
+.wrappercontainer {
+  width: 100%;
+  display: flex;
+  background: #2978b5;
+  grid-template-columns: 1fr 1fr;
+  padding: 40px 50px 20px 50px;
+  text-color: white;
+  align-items: middle;
+}
+
+.column {
+  flex-direction: row;
+  flex-basis: 75%;
+}
+.column h2 {
+  font-size: 30px;
+  font-family: "Nunito", "Helvetica", "sans-serif";
+  justify-content: space-evenly;
+  color: white;
+  text-align: center;
+}
+
 .item {
   width: 600px;
   height: 250px;
@@ -20,7 +43,7 @@
   text-align: center;
 }
 .item p {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   font-family: "Nunito", "Helvetica", "sans-serif";
 }
@@ -31,8 +54,6 @@
   padding: 100px 80px 20px 80px;
   text-align: center;
   flex: 1;
-
-
 }
 
 .item-boxII {
